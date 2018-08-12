@@ -1,6 +1,6 @@
 # UnityStandaloneSQLRanking
 This is an example code of a ranking system using SQLite. It's tested on the Windows10. 
-Please follow the SQLite setting link below.
+If you don't know how to setup SQLite in the Windows Standalone, here is a resource.
 https://ornithoptergames.com/how-to-set-up-sqlite-for-unity/
 
 
