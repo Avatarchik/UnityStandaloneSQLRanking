@@ -4,4 +4,4 @@ If you don't know how to setup SQLite in the Windows Standalone, here is a resou
 https://ornithoptergames.com/how-to-set-up-sqlite-for-unity/
 
 
-Please don't forget to dispose and close SQLiteConnection instances and command instances; otherwise, the memory leak occurs.
+Please don't forget to dispose and close SQLiteConnection and command instances; otherwise, the memory leak occurs.
