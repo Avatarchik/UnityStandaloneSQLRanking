@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Text;
 using Mono.Data.Sqlite;
 using UnityEngine;
 
@@ -337,6 +338,7 @@ public class RankingSQL
                 cmd.CommandText = "SELECT * FROM " + TABLE + " ORDER BY score " + RANKING_ORDER + ";";
 
                 var reader = cmd.ExecuteReader();
+                var builder = new StringBuilder();
                 while (reader.Read())
                 {
                     var id = reader.GetInt32(0);
@@ -350,22 +352,23 @@ public class RankingSQL
                     string create_atField = create_at.ToString();
 
                     idField = EncloseDoubleQuotesIfNeed(idField);
-                    sr.Write(idField);
-                    sr.Write(',');
+                    builder.Append(idField);
+                    builder.Append(',');
 
                     nameField = EncloseDoubleQuotesIfNeed(nameField);
-                    sr.Write(nameField);
-                    sr.Write(',');
+                    builder.Append(nameField);
+                    builder.Append(',');
 
                     scoreField = EncloseDoubleQuotesIfNeed(scoreField);
-                    sr.Write(scoreField);
-                    sr.Write(',');
+                    builder.Append(scoreField);
+                    builder.Append(',');
 
                     create_atField = EncloseDoubleQuotesIfNeed(create_atField);
-                    sr.Write(create_atField);
+                    builder.Append(create_atField);
 
-                    sr.Write("\r\n");
+                    builder.Append("\r\n");
                 }
+                sr.Write(builder.ToString());
 
                 cmd.Dispose();
                 cmd.Connection = null;
